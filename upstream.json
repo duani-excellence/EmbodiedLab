@@ -1,0 +1,35 @@
+{
+  "source": {
+    "repository": "https://github.com/huggingface/LIBERO",
+    "commit": "8561c60eea2fb93096146f240194649df73d8b1e",
+    "archive_sha256": "82ab43657d0510605617a1db0f938d12e0586b53f3dadf69f78cf2676109ab9a",
+    "package": "hf-libero",
+    "version": "0.1.4"
+  },
+  "assets": {
+    "repo_id": "lerobot/libero-assets",
+    "repo_type": "dataset",
+    "revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6"
+  },
+  "demo": {
+    "repo_id": "yifengzhu-hf/LIBERO-datasets",
+    "revision": "147fa5eb607bb696dd922c3518084a90954cd2f3",
+    "path": "libero_goal/turn_on_the_stove_demo.hdf5",
+    "url": "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets/resolve/147fa5eb607bb696dd922c3518084a90954cd2f3/libero_goal/turn_on_the_stove_demo.hdf5?download=true",
+    "size": 447509922,
+    "sha256": "387fc10747696b80dea6ed8d7f2beaa162bf92ae11750b241073cbd33aac73d5"
+  },
+  "evaluation_profile": {
+    "source": "https://github.com/huggingface/lerobot",
+    "hard_reset": true,
+    "settle_steps": 10,
+    "control_freq": 20,
+    "suite_max_steps": {
+      "libero_spatial": 280,
+      "libero_object": 280,
+      "libero_goal": 300,
+      "libero_10": 520,
+      "libero_90": 400
+    }
+  }
+}

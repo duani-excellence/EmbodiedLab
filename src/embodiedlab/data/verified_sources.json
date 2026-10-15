@@ -1,0 +1,48 @@
+{
+  "format_version": 1,
+  "training_contract": {
+    "observation_alignment": "post_action",
+    "supervision_alignment": "obs[t-1] -> action[t], t=1..T-1",
+    "image_orientation": "raw_robosuite_opengl",
+    "image_shape": [3, 128, 128],
+    "state_layout": ["eef_pos_world_m:3", "axis_angle_rad:3", "gripper_qpos_m:2"],
+    "state_dim": 8,
+    "action_dim": 7,
+    "action_semantics": "osc_pose_delta_normalized",
+    "position_delta_scale_m": 0.05,
+    "axis_angle_delta_scale_rad": 0.5,
+    "gripper_values": [-1, 1]
+  },
+  "sources": [
+    {
+      "repo_id": "yifengzhu-hf/LIBERO-datasets",
+      "revision": "147fa5eb607bb696dd922c3518084a90954cd2f3",
+      "path": "libero_goal/turn_on_the_stove_demo.hdf5",
+      "sha256": "387fc10747696b80dea6ed8d7f2beaa162bf92ae11750b241073cbd33aac73d5",
+      "size": 447509922,
+      "suite": "libero_goal",
+      "task_id": 7,
+      "task_order_index": 0,
+      "task_name": "turn_on_the_stove",
+      "stored_task_name": "turn_on_the_stove",
+      "language": "turn on the stove",
+      "observed_gripper_values": [-1, 1],
+      "audit_evidence": "docs/data_sources/stove_task7.json"
+    },
+    {
+      "repo_id": "yifengzhu-hf/LIBERO-datasets",
+      "revision": "147fa5eb607bb696dd922c3518084a90954cd2f3",
+      "path": "libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "sha256": "20252c7cf98cd7437061f7f200ae7b6cb6219fabbd53b4536dfaa8abda6ab737",
+      "size": 702223367,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "task_order_index": 0,
+      "task_name": "open_the_middle_drawer_of_the_cabinet",
+      "stored_task_name": "open_the_middle_layer_of_the_drawer",
+      "language": "open the middle drawer of the cabinet",
+      "observed_gripper_values": [-1],
+      "audit_evidence": "docs/data_sources/drawer_task0.json"
+    }
+  ]
+}

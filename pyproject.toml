@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "embodiedlab"
+version = "0.1.0"
+description = "LIBERO policy, episode data, and evaluation experiments"
+license = {file = "LICENSE"}
+requires-python = ">=3.10,<3.12"
+dependencies = ["numpy==1.26.4", "h5py==3.11.0"]
+
+[project.optional-dependencies]
+libero = ["hf-libero @ https://github.com/huggingface/LIBERO/archive/8561c60eea2fb93096146f240194649df73d8b1e.tar.gz"]
+# CPU/CUDA builds are selected by separate environment locks, not package metadata.
+data = ["torch>=2.5.1,<2.10"]
+dev = ["pytest==8.4.2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"embodiedlab.data" = ["verified_sources.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
