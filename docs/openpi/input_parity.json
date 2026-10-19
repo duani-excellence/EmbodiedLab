@@ -1,0 +1,79 @@
+{
+  "observation/image": {
+    "equal": true,
+    "shape": [
+      224,
+      224,
+      3
+    ],
+    "dtype": "uint8",
+    "max_absolute_difference": 0.0
+  },
+  "observation/wrist_image": {
+    "equal": true,
+    "shape": [
+      224,
+      224,
+      3
+    ],
+    "dtype": "uint8",
+    "max_absolute_difference": 0.0
+  },
+  "observation/state": {
+    "equal": true,
+    "shape": [
+      8
+    ],
+    "dtype": "float64",
+    "max_absolute_difference": 0.0
+  },
+  "prompt": {
+    "equal": true
+  },
+  "environment": {
+    "env_name": "LiberoEnv",
+    "suite": "libero_goal",
+    "task_id": 7,
+    "task_name": "turn_on_the_stove",
+    "language": "turn on the stove",
+    "init_state_index": 0,
+    "image_size": 256,
+    "max_episode_steps": 300,
+    "settle_steps": 10,
+    "control_dt": 0.05,
+    "control_mode": "osc_pose_delta_normalized",
+    "action_dim": 7,
+    "action_low": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0
+    ],
+    "action_high": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "position_delta_scale_m": 0.05,
+    "axis_angle_delta_scale_rad": 0.5,
+    "gripper": "-1 open, +1 close",
+    "image_orientation": "raw_robosuite_opengl",
+    "controller": "native Panda OSC_POSE",
+    "evaluation_profile": "lerobot_single_env_hard_reset",
+    "libero_commit": "8561c60eea2fb93096146f240194649df73d8b1e",
+    "libero_version": "0.1.4",
+    "assets_repo": "lerobot/libero-assets",
+    "assets_revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6",
+    "assets_repo_type": "dataset",
+    "seed": 42,
+    "mujoco_version": "3.3.2",
+    "robosuite_version": "1.4.0"
+  }
+}

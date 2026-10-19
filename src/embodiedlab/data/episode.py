@@ -154,12 +154,6 @@ class EpisodeDataset:
             raise ValueError('Our recordings use seed + official init_state_index, not flattened state injection')
         return np.asarray(self._group['states'][0], dtype=np.float64)
 
-    @property
-    def model_xml(self) -> str | None:
-        """Source model for explicit official-demo validation, when present."""
-        value = self._group.attrs.get('model_file')
-        return _text(value) if value is not None else None
-
     def validate(self) -> None:
         """Check shapes and small numeric arrays; RGB arrays remain lazy."""
         if self.actions.ndim != 2 or self.actions.shape[1] != 7 or self.actions.shape[0] < 1:
@@ -360,8 +354,3 @@ class EpisodeRecorder:
             self._group.attrs['metadata_json'] = json.dumps(self._metadata, allow_nan=False)
             self._file.close()
             self._file = None
-
-    def episode(self) -> EpisodeDataset:
-        """Close writer and open the completed recording for lazy reading."""
-        self.close()
-        return EpisodeDataset.load(self.path)

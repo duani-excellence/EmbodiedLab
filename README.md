@@ -1,6 +1,6 @@
-# EmbodiedLab v0.1.0 — LIBERO Training, Inference & Evaluation Framework
+# EmbodiedLab — 仿真机器人学习实验
 
-一个简洁的 LIBERO 机器人学习研究框架。当前支持单任务 VisualBC 训练、Checkpoint恢复、原生闭环评测，以及 HDF5 轨迹记录和动作回放。任务、控制器、物理、奖励与成功判定采用固定版本的 LIBERO。
+一个简洁的机器人学习研究框架。LIBERO主线支持单任务VisualBC训练、Checkpoint恢复、原生闭环评测、HDF5记录与回放；另包含官方Wipe与Factory GearMesh接触任务。各任务保留固定上游环境的控制器、动力学、奖励和成功判定。
 
 源码版本为 **0.1.0**。仓库不分发官方示范、仿真资产、Checkpoint或本地实验输出；依赖和来源版本分别记录在锁文件与 [upstream.json](upstream.json)。
 
@@ -119,44 +119,61 @@ $EL_PY scripts/replay_libero.py --episode "path/to/episode_000.hdf5"
 
 回放真实执行自录动作并报告状态、RGB与终止标志偏差；它不承诺当前仿真能精确复现历史官方专家文件。Checkpoint不随仓库发布，评测需使用自己训练或另外提供的兼容模型；仅一个已知来源的历史E5格式提供显式身份映射，其他未知旧权重拒绝猜测。
 
-## 数据与代码接口
+## OpenPI、OpenVLA-OFT与固定挑战集
 
-Observation包含两路原始HWC RGB `uint8`、8维`robot_state`、7维`joint_positions`和`language`。状态顺序为末端世界位置3维（m）、轴角3维（rad）、手指位置2维（m）。共用`preprocess_observation()`将两路图像转为CHW `float32 / 255`，保持像素方向；预览展示时的180度旋转不参与训练或推理。
+官方OpenPI π₀.₅与联合训练OpenVLA-OFT使用各自独立模型环境/服务，两大模型顺序加载。安装、权重获取、服务与真实评测命令见[OpenPI指南](docs/openpi/README.md)和[OFT/挑战集指南](docs/benchmark/README.md)。版本/权重身份分别固定在[OpenPI pin](openpi-upstream.json)与[OFT pin](openvla-upstream.json)。
 
-动作是7维归一化OSC指令：`action[:3]`为世界平移增量（缩放0.05m），`action[3:6]`为轴角增量（缩放0.5rad），`action[6]`为夹爪`-1`开、`+1`关。训练采用前6维MSE和夹爪二分类CE。抽屉示范只包含`-1`夹爪标签，不能用其夹爪准确率证明开合切换能力。
-
-已审核官方数据的观测在动作之后，监督对齐为`obs[t-1] → action[t]`，`t=1..T-1`；首个动作缺少完整输入，不能补造初始RGB。自录数据采用T个动作、T+1个观测，不做上述移位。新来源必须单独核查，不自动套用此规则。
-
-| 位置 | 职责 |
-|---|---|
-| `src/embodiedlab/envs/` | 原生LIBERO适配 |
-| `src/embodiedlab/policies/` | Policy、VisualBC、Checkpoint契约 |
-| `src/embodiedlab/runners/`、`evaluation.py` | Rollout与评测组织 |
-| `src/embodiedlab/data/` | HDF5、Torch样本、记录与回放 |
-| `scripts/` | 下载、训练、评测、回放正式入口 |
-| [tools/](tools/README.md) | 数据检查、历史诊断与CPU/GPU微基准 |
-
-新增Policy只需实现`reset()`和`act(observation)`，Runner不依赖具体模型。当前范围是单任务、128px双RGB、8维状态和原生OSC控制；未实现多任务联合训练、ROS 2或真实机器人部署。
-
-## 测试与实验记录
-
-不依赖示范、权重或渲染的基础编排/训练入口检查：
+OpenPI保留官方图像转换、10步预测/默认5步消费；OFT保留其center crop、状态/动作归一化、夹爪转换与8步消费。不交换模型协议，不调整权重。[固定manifest](benchmark_manifest.json)保存六任务/初态/seed，含Spatial220步等正式协议差异。完成运行后只读分析：
 
 ```bash
-$EL_PY -m pytest -q -p no:cacheprovider \
-  tests/test_evaluation.py tests/test_training_entry.py
+$EL_PY tools/analyze_challenge.py --manifest benchmark_manifest.json \
+  --openpi-dir evaluation_results/phase6b_formal_openpi \
+  --openvla-dir evaluation_results/phase6b_formal_openvla \
+  --output-dir evaluation_results/challenge_analysis_new
 ```
 
-完整本地回归：
+## 可选接触任务
+
+Wipe使用主线GPU环境，比较触碰定位固定深度OSC和腕力导纳；两者是oracle污点状态传统基线。六维OSC，无夹爪；接触/恢复指标与T动作/T+1观测保存在专属NPZ：
+
+```bash
+$EL_PY scripts/evaluate_wipe.py --seeds 42 --scenarios nominal \
+  --output-dir evaluation_results/wipe_nominal_new
+```
+
+Factory GearMesh使用独立Python3.11、Isaac Lab2.3.0 / Sim5.1、Torch2.7.0+cu128与官方循环PPO。安装和Checkpoint校验见[Factory安装附录](docs/archive/CONTACT_RICH_REPORT.md#附录factory-安装与运行)。已有环境直接运行：
+
+```bash
+env PYTHONPATH="$PWD/src" OMNI_KIT_ACCEPT_EULA=YES OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 \
+  .venv-factory/bin/python scripts/evaluate_gearmesh.py --headless --device cuda:0 \
+  --checkpoint .deps/isaac-factory/checkpoint.pth --contacts --seeds 42 \
+  --output-dir evaluation_results/factory_gearmesh_new
+```
+
+两任务只共享Policy/Runner，尚未接入LIBERO HDF5 Dataset/Replay。各自接触指标的采样/定义不同，不混成总分。结果与局限见[接触任务资料](docs/archive/CONTACT_RICH_REPORT.md)。
+
+## 代码与数据约定
+
+`src/embodiedlab/`中的`envs/`接原生仿真，`data/`负责LIBERO记录/样本/Replay，`policies/`保留模型与Adapter，`runners/rollout.py`执行Episode，`evaluation.py/benchmark.py`负责LIBERO评测/统计。`scripts/`是正式运行入口，[tools/](tools/README.md)提供数据查看、模型服务和离线分析。
+
+LIBERO动作是七维归一化OSC：世界系平移缩放0.05m，轴角增量缩放0.5rad并左乘，夹爪-1开/+1关。VisualBC输入双路128px RGB及8维`eef_xyz + axis_angle + finger_qpos`；图像转CHW float32/255，保持原始像素方向，训练集状态归一化buffer随权重保存。损失为前六维MSE+夹爪二类CE。
+
+仅对已审核官方来源使用`obs[t-1] → action[t]`，舍弃缺少完整输入的首动作；自录T+1观测不做该移位。新增Policy实现`reset()`、`act(observation)`即可复用Runner；各算法保留清晰训练脚本，无通用Trainer要求。
+
+## 测试与历史
 
 ```bash
 $EL_PY -m pytest -q -p no:cacheprovider
 ```
 
-完整套件需要固定资产、两份官方HDF5和可用EGL。旧E5权重不分发：新克隆缺少它时，相关兼容性测试明确跳过并显示原因；其余真实数据和新格式测试仍可运行。保留E5的本地环境还可执行原模型回归。CUDA专属检查在CUDA不可用时跳过。
+若按OpenPI指南使用可选client target，先设置`PYTHONPATH="$PWD/.deps/openpi-client-runtime:$PWD/src"`，否则VLA相关测试模块会跳过。
 
-真实实验命令、结果与局限见[Phase 5C报告](docs/archive/PHASE5C_REPORT.md)，旧报告保存在[docs/archive/](docs/archive/)。少量固定初态的成功率和离线误差不等于标准Benchmark成绩。公开版本从经审核的v0.1.0快照开始；含本机路径和旧FR3资产的早期Git历史仅在维护者本机保留，未推送。数据、环境和本地实验输出保持独立，不随源码整理删除。
+完整测试需要固定资产、两份官方HDF5和可用EGL；CUDA项在CPU环境跳过。旧E5权重不分发，目前部分新版Checkpoint fixture也依赖它，缺权重时会一起跳过，不能视为已验证。基础入口检查可只运行`tests/test_evaluation.py tests/test_training_entry.py`。
+
+历史报告、静态实验导出及未实施PRO调查见[归档索引](docs/archive/README.md)。数据、权重、实验结果、虚拟环境与缓存保留在本机，由`.gitignore`排除；小样本成功率不代表标准LIBERO成绩。
+
+ROS四个源码模块、五个运行入口、Docker/controller及上游记录完整保留在本机`archive/ros2-phase7f-20261019`分支；当前分支不再维护ROS入口。需要恢复时使用独立目录：`git worktree add ../embodiedlab-ros2 archive/ros2-phase7f-20261019`，另行启用原隔离环境。当前没有真机部署、多任务训练或ACT/RL/World Model训练器。
 
 ## 许可
 
-EmbodiedLab原创代码采用[MIT许可证](LICENSE)。LIBERO代码、示范数据、仿真资产和依赖分别适用其自身条款，见[第三方声明](THIRD_PARTY_NOTICES.md)。本仓库不把第三方许可统一改为MIT。
+原创代码采用[MIT](LICENSE)，第三方代码、数据和资产遵守各自许可，见[来源声明](THIRD_PARTY_NOTICES.md)。

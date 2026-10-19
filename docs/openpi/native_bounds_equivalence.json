@@ -1,0 +1,47 @@
+{
+  "kind": "native input bounds equivalence diagnostic using recorded real pi05 actions; NOT a new closed-loop model result",
+  "seed": 7,
+  "init_state_index": 0,
+  "suite": "libero_goal",
+  "task_id": 7,
+  "steps": 84,
+  "initial_state_error": 0.0,
+  "max_full_sim_state_error": 0.0,
+  "max_rgb_pixel_error": 0.0,
+  "max_reward_error": 0.0,
+  "done_equal": true,
+  "success_equal": true,
+  "native_success_pair": [
+    true,
+    true
+  ],
+  "raw_min": [
+    -0.5804631508051753,
+    -0.08810576030266293,
+    -0.8037840243676901,
+    -0.08734459076629872,
+    -0.0021612967520433513,
+    -0.08901720604970723,
+    -1.0073561295104028
+  ],
+  "raw_max": [
+    0.05087792848962536,
+    0.7998214691553114,
+    0.026783712818384098,
+    0.14148227966027535,
+    0.1336118700854691,
+    0.38405806459725866,
+    1.0112327903991938
+  ],
+  "raw_outside_counts_per_dim": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    45
+  ],
+  "max_overshoot": 0.011232790399193782,
+  "no_historical_state_injection": true
+}

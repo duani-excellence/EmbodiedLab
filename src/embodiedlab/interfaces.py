@@ -34,5 +34,5 @@ class Policy(Protocol):
         ...
 
     def act(self, observation: Observation) -> Action:
-        """Return a normalized seven-dimensional LIBERO action."""
+        """Return the task's documented action vector (LIBERO uses seven OSC values)."""
         ...

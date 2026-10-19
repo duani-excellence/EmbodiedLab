@@ -15,6 +15,14 @@ libero = ["hf-libero @ https://github.com/huggingface/LIBERO/archive/8561c60eea2
 # CPU/CUDA builds are selected by separate environment locks, not package metadata.
 data = ["torch>=2.5.1,<2.10"]
 dev = ["pytest==8.4.2"]
+openpi = [
+    "openpi-client @ https://github.com/Physical-Intelligence/openpi/archive/215abfb217dbac7d5f1273282331b9b1866c0479.tar.gz#subdirectory=packages/openpi-client",
+    "websockets==15.0.1",
+    "msgpack==1.1.2",
+    "dm-tree==0.1.9",
+    "pillow==10.4.0",
+    "typing-extensions==4.16.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

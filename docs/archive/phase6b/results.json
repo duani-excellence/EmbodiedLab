@@ -1,0 +1,678 @@
+{
+  "task_rows": [
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "successes": 9,
+      "completed": 10,
+      "success_rate": 0.9,
+      "wilson_95": [
+        0.595850676696163,
+        0.982123735616221
+      ],
+      "mean_length": 272.6,
+      "mean_first_success_step": 245.11111111111111,
+      "inference_requests": 548,
+      "model": "openpi",
+      "lengths": [
+        247,
+        259,
+        239,
+        259,
+        245,
+        228,
+        264,
+        520,
+        234,
+        231
+      ],
+      "first_success_steps": [
+        247,
+        259,
+        239,
+        259,
+        245,
+        228,
+        264,
+        null,
+        234,
+        231
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 231.7,
+      "mean_first_success_step": 231.7,
+      "inference_requests": 467,
+      "model": "openpi",
+      "lengths": [
+        219,
+        212,
+        249,
+        220,
+        236,
+        205,
+        214,
+        219,
+        232,
+        311
+      ],
+      "first_success_steps": [
+        219,
+        212,
+        249,
+        220,
+        236,
+        205,
+        214,
+        219,
+        232,
+        311
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 235.2,
+      "mean_first_success_step": 235.2,
+      "inference_requests": 475,
+      "model": "openpi",
+      "lengths": [
+        234,
+        215,
+        213,
+        226,
+        275,
+        266,
+        231,
+        237,
+        223,
+        232
+      ],
+      "first_success_steps": [
+        234,
+        215,
+        213,
+        226,
+        275,
+        266,
+        231,
+        237,
+        223,
+        232
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 260.2,
+      "mean_first_success_step": 260.2,
+      "inference_requests": 524,
+      "model": "openpi",
+      "lengths": [
+        241,
+        241,
+        255,
+        258,
+        278,
+        290,
+        242,
+        238,
+        249,
+        310
+      ],
+      "first_success_steps": [
+        241,
+        241,
+        255,
+        258,
+        278,
+        290,
+        242,
+        238,
+        249,
+        310
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 78.9,
+      "mean_first_success_step": 78.9,
+      "inference_requests": 162,
+      "model": "openpi",
+      "lengths": [
+        78,
+        104,
+        73,
+        76,
+        74,
+        67,
+        74,
+        79,
+        83,
+        81
+      ],
+      "first_success_steps": [
+        78,
+        104,
+        73,
+        76,
+        74,
+        67,
+        74,
+        79,
+        83,
+        81
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 105.4,
+      "mean_first_success_step": 105.4,
+      "inference_requests": 214,
+      "model": "openpi",
+      "lengths": [
+        109,
+        106,
+        101,
+        105,
+        106,
+        105,
+        105,
+        107,
+        105,
+        105
+      ],
+      "first_success_steps": [
+        109,
+        106,
+        101,
+        105,
+        106,
+        105,
+        105,
+        107,
+        105,
+        105
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 244.0,
+      "mean_first_success_step": 244.0,
+      "inference_requests": 307,
+      "model": "openvla_oft",
+      "lengths": [
+        245,
+        264,
+        244,
+        262,
+        226,
+        240,
+        248,
+        239,
+        224,
+        248
+      ],
+      "first_success_steps": [
+        245,
+        264,
+        244,
+        262,
+        226,
+        240,
+        248,
+        239,
+        224,
+        248
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 233.8,
+      "mean_first_success_step": 233.8,
+      "inference_requests": 297,
+      "model": "openvla_oft",
+      "lengths": [
+        220,
+        226,
+        294,
+        212,
+        232,
+        192,
+        218,
+        211,
+        332,
+        201
+      ],
+      "first_success_steps": [
+        220,
+        226,
+        294,
+        212,
+        232,
+        192,
+        218,
+        211,
+        332,
+        201
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 223.9,
+      "mean_first_success_step": 223.9,
+      "inference_requests": 284,
+      "model": "openvla_oft",
+      "lengths": [
+        218,
+        210,
+        220,
+        237,
+        240,
+        227,
+        220,
+        229,
+        214,
+        224
+      ],
+      "first_success_steps": [
+        218,
+        210,
+        220,
+        237,
+        240,
+        227,
+        220,
+        229,
+        214,
+        224
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 256.2,
+      "mean_first_success_step": 256.2,
+      "inference_requests": 325,
+      "model": "openvla_oft",
+      "lengths": [
+        259,
+        244,
+        246,
+        249,
+        283,
+        278,
+        244,
+        246,
+        251,
+        262
+      ],
+      "first_success_steps": [
+        259,
+        244,
+        246,
+        249,
+        283,
+        278,
+        244,
+        246,
+        251,
+        262
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 79.0,
+      "mean_first_success_step": 79.0,
+      "inference_requests": 103,
+      "model": "openvla_oft",
+      "lengths": [
+        75,
+        80,
+        84,
+        81,
+        78,
+        78,
+        74,
+        87,
+        75,
+        78
+      ],
+      "first_success_steps": [
+        75,
+        80,
+        84,
+        81,
+        78,
+        78,
+        74,
+        87,
+        75,
+        78
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "successes": 10,
+      "completed": 10,
+      "success_rate": 1.0,
+      "wilson_95": [
+        0.7224680153904798,
+        1.0
+      ],
+      "mean_length": 104.1,
+      "mean_first_success_step": 104.1,
+      "inference_requests": 134,
+      "model": "openvla_oft",
+      "lengths": [
+        105,
+        99,
+        109,
+        104,
+        107,
+        104,
+        106,
+        104,
+        94,
+        109
+      ],
+      "first_success_steps": [
+        105,
+        99,
+        109,
+        104,
+        107,
+        104,
+        106,
+        104,
+        94,
+        109
+      ]
+    }
+  ],
+  "models": {
+    "openpi": {
+      "macro": {
+        "planned_tasks": 6,
+        "tasks_with_results": 6,
+        "tasks_with_completed_episodes": 6,
+        "fully_completed_tasks": 6,
+        "planned_episodes": 60,
+        "completed_episodes": 60,
+        "incomplete_episodes": 0,
+        "unattempted_episodes": 0,
+        "successes": 59,
+        "per_task_denominators": [
+          {
+            "suite": "libero_10",
+            "task_id": 2,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 3,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 4,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 9,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_spatial",
+            "task_id": 0,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_spatial",
+            "task_id": 1,
+            "completed": 10,
+            "planned": 10
+          }
+        ],
+        "fixed_manifest_task_macro_success_rate": 0.9833333333333334,
+        "observed_task_macro_success_rate": 0.9833333333333334
+      },
+      "latency": {
+        "rpc": {
+          "count": 2390,
+          "expected_count": 2390,
+          "missing_count": 0,
+          "first_ms": 1304.8396889935248,
+          "mean_ms": 405.82442163627604,
+          "p50_ms": 404.67643149895594,
+          "p95_ms": 407.8826425393345,
+          "max_ms": 1304.8396889935248
+        },
+        "synchronized_sample": {
+          "count": 2390,
+          "expected_count": 2390,
+          "missing_count": 0,
+          "first_ms": 1010.1993610151112,
+          "mean_ms": 399.2856114795412,
+          "p50_ms": 398.27210851944983,
+          "p95_ms": 401.26347642217297,
+          "max_ms": 1010.1993610151112
+        },
+        "act": {
+          "count": 11840,
+          "expected_count": 11840,
+          "missing_count": 0,
+          "first_ms": 1306.3039419939741,
+          "mean_ms": 82.23111084525216,
+          "p50_ms": 0.026456982595846057,
+          "p95_ms": 407.4070525850402,
+          "max_ms": 1306.3039419939741
+        },
+        "envstep": {
+          "count": 11840,
+          "expected_count": 11840,
+          "missing_count": 0,
+          "first_ms": 6.969156034756452,
+          "mean_ms": 7.871949695913212,
+          "p50_ms": 7.228230504551902,
+          "p95_ms": 11.950135245569982,
+          "max_ms": 20.06774296751246
+        }
+      },
+      "inference_requests": 2390
+    },
+    "openvla_oft": {
+      "macro": {
+        "planned_tasks": 6,
+        "tasks_with_results": 6,
+        "tasks_with_completed_episodes": 6,
+        "fully_completed_tasks": 6,
+        "planned_episodes": 60,
+        "completed_episodes": 60,
+        "incomplete_episodes": 0,
+        "unattempted_episodes": 0,
+        "successes": 60,
+        "per_task_denominators": [
+          {
+            "suite": "libero_10",
+            "task_id": 2,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 3,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 4,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_10",
+            "task_id": 9,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_spatial",
+            "task_id": 0,
+            "completed": 10,
+            "planned": 10
+          },
+          {
+            "suite": "libero_spatial",
+            "task_id": 1,
+            "completed": 10,
+            "planned": 10
+          }
+        ],
+        "fixed_manifest_task_macro_success_rate": 1.0,
+        "observed_task_macro_success_rate": 1.0
+      },
+      "latency": {
+        "rpc": {
+          "count": 1450,
+          "expected_count": 1450,
+          "missing_count": 0,
+          "first_ms": 423.196766001638,
+          "mean_ms": 97.94071595638124,
+          "p50_ms": 97.49787248438224,
+          "p95_ms": 99.60743744741194,
+          "max_ms": 423.196766001638
+        },
+        "synchronized_sample": {
+          "count": 1450,
+          "expected_count": 1450,
+          "missing_count": 0,
+          "first_ms": 378.72992700431496,
+          "mean_ms": 87.59958458076841,
+          "p50_ms": 87.34233750146814,
+          "p95_ms": 88.76257512019947,
+          "max_ms": 378.72992700431496
+        },
+        "act": {
+          "count": 11410,
+          "expected_count": 11410,
+          "missing_count": 0,
+          "first_ms": 423.4462939784862,
+          "mean_ms": 12.480578452387888,
+          "p50_ms": 0.0012280070222914219,
+          "p95_ms": 97.98271893523633,
+          "max_ms": 423.4462939784862
+        },
+        "envstep": {
+          "count": 11410,
+          "expected_count": 11410,
+          "missing_count": 0,
+          "first_ms": 6.65939599275589,
+          "mean_ms": 7.8040630299172316,
+          "p50_ms": 7.202487991889939,
+          "p95_ms": 11.858092897455204,
+          "max_ms": 19.398661039303988
+        }
+      },
+      "inference_requests": 1450
+    }
+  },
+  "paired_outcome_counts": {
+    "both_success": 59,
+    "openvla_oft_only_success": 1
+  },
+  "paired_successes_only_length_difference_oft_minus_pi": {
+    "n": 59,
+    "mean": -2.5254237288135593,
+    "median": -1.0,
+    "min": -110,
+    "max": 100
+  },
+  "interpretation": "Descriptive paired outcomes only. No significance test or population superiority claim."
+}

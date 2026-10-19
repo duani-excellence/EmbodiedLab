@@ -152,3 +152,55 @@ def evaluate_suites(*, suites: Sequence[str], task_ids: Sequence[int] | None = (
     _write_json(run_dir / 'settings.json', settings)
     _write_json(run_dir / 'results.json', report)
     return report, run_dir
+
+
+def task_diagnostics(env: 'LiberoEnv') -> dict:
+    """Read object joints and robot/external contacts at a control-step endpoint."""
+    import mujoco
+
+    model, data = env._env.sim.model, env._env.sim.data
+    joints = {}
+    for index in range(model.njnt):
+        name = model.joint_id2name(index)
+        if name and not name.startswith(('robot', 'gripper')):
+            start = model.jnt_qposadr[index]
+            width = {0: 7, 1: 4, 2: 1, 3: 1}[int(model.jnt_type[index])]
+            joints[name] = data.qpos[start:start + width].tolist()
+    robot = env._env.robots[0]
+    robot_ids = {model.geom_name2id(name) for name in
+                 (*robot.robot_model.contact_geoms, *robot.gripper.contact_geoms)}
+    contacts = []
+    for index, contact in enumerate(data.contact[:data.ncon]):
+        if (contact.geom1 in robot_ids) != (contact.geom2 in robot_ids):
+            force = np.zeros(6)
+            mujoco.mj_contactForce(model._model, data._data, index, force)
+            contacts.append({'geoms': [model.geom_id2name(i) or str(i)
+                                      for i in (contact.geom1, contact.geom2)],
+                             'normal_force_N': float(abs(force[0]))})
+    domain = env._env.env
+    # Evaluate the exact native goal atoms for diagnostics only. This neither
+    # defines new success criteria nor supplies privileged state to a policy.
+    predicates = [{'predicate': list(goal),
+                   'satisfied': bool(domain._eval_predicate(goal))}
+                  for goal in domain.parsed_problem['goal_state']]
+    return {'object_joint_positions': joints, 'robot_external_contacts': contacts,
+            'native_goal_predicates': predicates}
+
+
+def save_preview(record_path: Path, target: Path) -> None:
+    """Six paired frames; rotate only display 180 degrees, never recorded pixels."""
+    from PIL import Image, ImageDraw
+    from embodiedlab.data.episode import EpisodeDataset
+
+    with EpisodeDataset(record_path) as episode:
+        steps = sorted(set(np.linspace(0, len(episode), 6, dtype=int).tolist()))
+        canvas = Image.new('RGB', (256 * len(steps), 552), 'white')
+        draw = ImageDraw.Draw(canvas)
+        for column, step in enumerate(steps):
+            observation = episode.observation(step)
+            draw.text((column * 256 + 5, 4), f'step {step}', fill='black')
+            for row, key in enumerate(('agentview_image', 'wrist_image')):
+                pixels = observation[key][::-1, ::-1]
+                canvas.paste(Image.fromarray(pixels).resize((256, 256)),
+                             (column * 256, 24 + row * 264))
+        canvas.save(target)

@@ -1,0 +1,683 @@
+{
+  "manifest_version": 1,
+  "benchmark_id": "embodiedlab-phase6b-challenge-v1",
+  "frozen_before_formal": true,
+  "formal_episodes_per_model_task": 10,
+  "planned_formal_episodes": 120,
+  "task_order": [
+    [
+      "libero_10",
+      2
+    ],
+    [
+      "libero_10",
+      3
+    ],
+    [
+      "libero_10",
+      4
+    ],
+    [
+      "libero_10",
+      9
+    ],
+    [
+      "libero_spatial",
+      0
+    ],
+    [
+      "libero_spatial",
+      1
+    ]
+  ],
+  "code_commit": "229a3ff8c47a154fe64b734e1b62b86b8d376ff2",
+  "preserved_phase6a_commit": "300aba2",
+  "environment": {
+    "libero_commit": "8561c60eea2fb93096146f240194649df73d8b1e",
+    "libero_version": "0.1.4",
+    "assets_revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6",
+    "mujoco": "3.3.2",
+    "robosuite": "1.4.0",
+    "python": "3.10.20",
+    "control_dt": 0.05,
+    "settle_steps": 10,
+    "libero_gpu_lock_sha256": "b0c217ce6a97a56386cf8e50466fb98c32282e15ce4e73f4a2a83d041bdd6d9c",
+    "success_source": "unmodified native env.check_success; goal atoms from parsed_problem[goal_state]",
+    "initialization": "native hard reset, official set_init_state, 10 dummy [0,0,0,0,0,0,-1]",
+    "horizon_source": "both pinned OpenPI and OpenVLA official eval loops; Spatial220, LIBERO-10 520"
+  },
+  "models": {
+    "openpi": {
+      "source": {
+        "repository": "https://github.com/Physical-Intelligence/openpi",
+        "commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+        "uv_lock_sha256": "793488b5a55bb87200db90a61fd0af51922b686d94e1da4f4c587ab119b37d74",
+        "client_subdirectory": "packages/openpi-client"
+      },
+      "checkpoint": "gs://openpi-assets/checkpoints/pi05_libero",
+      "checkpoint_content_sha256": "d9104dfdea46eca2fadf05ec7fc478b19d39b19aa8dfda0e6adedcd6d6b6efac",
+      "backend": "jax0.5.3",
+      "model_seed": 0,
+      "rng": "key(0), split once per request; continuous across all formal tasks; separate fresh smoke server",
+      "render_size": 256,
+      "model_image_size": 224,
+      "image_protocol": "rotate180 then official PIL resize_with_pad",
+      "state": "eef world xyz3(m), axisangle3(rad), finger qpos2(m); checkpoint quantile norm server-side",
+      "action_horizon": 10,
+      "replan_steps": 5,
+      "action_protocol": "official inverse normalized OSC; explicit native-equivalent input saturation, raw projections recorded",
+      "xla_flags": "--xla_gpu_enable_triton_gemm=false",
+      "ptxas": "12.9.41; isolated environment"
+    },
+    "openvla_oft": {
+      "source_commit": "e4287e94541f459edc4feabc4e181f537cd569a8",
+      "transformers_commit": "bc339d9ad707454c0c115970db43c260067c61ab",
+      "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "hf_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "checkpoint_objects": [
+        {
+          "path": ".gitattributes",
+          "size": 549,
+          "git_blob": "f2e3b7cfdf97b6a04236390889372e0780d8e874",
+          "lfs_sha256": null
+        },
+        {
+          "path": "README.md",
+          "size": 2953,
+          "git_blob": "f644f6198c2e9f9d1bb00728e2155e9d6620c0e3",
+          "lfs_sha256": null
+        },
+        {
+          "path": "action_head--300000_checkpoint.pt",
+          "size": 302242674,
+          "git_blob": "d859fc8a8d382485e0030070c2e82808ab458b2e",
+          "lfs_sha256": "f9647226ca9a1ee64ff8ed1ec380c89110afc6fc2bf6d0ae463cc4023165b4dc"
+        },
+        {
+          "path": "added_tokens.json",
+          "size": 21,
+          "git_blob": "8671820d1bb0dfd4dd92d5bd0fa9b5a7773f843e",
+          "lfs_sha256": null
+        },
+        {
+          "path": "config.json",
+          "size": 60712,
+          "git_blob": "42ea81c7c783049559839e305afdfe97e30581a3",
+          "lfs_sha256": null
+        },
+        {
+          "path": "configuration_prismatic.py",
+          "size": 5865,
+          "git_blob": "c2625753c4da1a6ef274a02645d4086bc7a7fb2b",
+          "lfs_sha256": null
+        },
+        {
+          "path": "dataset_statistics.json",
+          "size": 11871,
+          "git_blob": "abde7987899224c1931d3c456d9729a469d72952",
+          "lfs_sha256": null
+        },
+        {
+          "path": "generation_config.json",
+          "size": 136,
+          "git_blob": "2cefc1e51e6ccfe846d2b509ced403df73a8efe2",
+          "lfs_sha256": null
+        },
+        {
+          "path": "lora_adapter/README.md",
+          "size": 5034,
+          "git_blob": "ca63c32116d440d1cc7fe5699b949433ab71e3b2",
+          "lfs_sha256": null
+        },
+        {
+          "path": "lora_adapter/adapter_config.json",
+          "size": 813,
+          "git_blob": "dcd87a65ba5b81669e3c63e039df73624ae30ddd",
+          "lfs_sha256": null
+        },
+        {
+          "path": "lora_adapter/adapter_model.safetensors",
+          "size": 484458600,
+          "git_blob": "3ed92175af09cddcfc5139970b86274aaca86082",
+          "lfs_sha256": "2e895d13475d45fa79b9d8a71c952b526fa1ba23dfe15c73b8c0518351d660e7"
+        },
+        {
+          "path": "model-00001-of-00004.safetensors",
+          "size": 4925122448,
+          "git_blob": "a0af2d8fac497dc03ca12ea30c9d5f0909e09189",
+          "lfs_sha256": "8b30a7951e68703e1731957190d9f1d6e1eaa82f05b53909608eb0510875b11d"
+        },
+        {
+          "path": "model-00002-of-00004.safetensors",
+          "size": 4947392496,
+          "git_blob": "5c64bcec942998c991300215fa495c7d4ec91fd1",
+          "lfs_sha256": "af4773166950ddda1da6b3c5367796a52e7d5e7216f97041d9ad0721a25e53fe"
+        },
+        {
+          "path": "model-00003-of-00004.safetensors",
+          "size": 4947417456,
+          "git_blob": "fcc9ebe93ed6b3d7c41e9315aed556cf57996696",
+          "lfs_sha256": "5a62791dd46ec4a85b353920aa07eff3582ceb5e9b6b853ad0f38de36fcab75d"
+        },
+        {
+          "path": "model-00004-of-00004.safetensors",
+          "size": 262668432,
+          "git_blob": "57ef905a83f317f4d0d5f9e5a5611f97c45b7f5d",
+          "lfs_sha256": "a877e3fece1feafb80f59f91585ce04379ee39e2bf9a25cb7b4acf237e896e60"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "size": 94764,
+          "git_blob": "bd7cc8ff8070ead248023feae55303f5a3b900d1",
+          "lfs_sha256": null
+        },
+        {
+          "path": "modeling_prismatic.py",
+          "size": 49029,
+          "git_blob": "9013a4f57eb18fa770efcbe9d0a1445d6c16bb72",
+          "lfs_sha256": null
+        },
+        {
+          "path": "preprocessor_config.json",
+          "size": 1650,
+          "git_blob": "92975ace548590d24f65f497d7610af3b92b4dcd",
+          "lfs_sha256": null
+        },
+        {
+          "path": "processing_prismatic.py",
+          "size": 12718,
+          "git_blob": "3f2daaf82c3b8946fe57596f656f14a031eaef93",
+          "lfs_sha256": null
+        },
+        {
+          "path": "processor_config.json",
+          "size": 130,
+          "git_blob": "f892f8a8f53e2f3603a7cf86043a1add317c1787",
+          "lfs_sha256": null
+        },
+        {
+          "path": "proprio_projector--300000_checkpoint.pt",
+          "size": 67275256,
+          "git_blob": "e76a6f41c937b79723ffaca35c774fcdbd1407e8",
+          "lfs_sha256": "1792c6e19381d3c7c814e2d49836a855d3a38b0693919416f52b3c5af39505c8"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "size": 552,
+          "git_blob": "ab75c8e0a22550f0667501a0c52758f071a9efd8",
+          "lfs_sha256": null
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 1842976,
+          "git_blob": "591f1fc6ff695d967513100f707e66d5bf731414",
+          "lfs_sha256": null
+        },
+        {
+          "path": "tokenizer.model",
+          "size": 499723,
+          "git_blob": "6c00c742ce03c627d6cd5b795984876fa49fa899",
+          "lfs_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 1192,
+          "git_blob": "d39defd338dee423ae0a71abfd7ea69a44fb1e52",
+          "lfs_sha256": null
+        }
+      ],
+      "model_seed": 42,
+      "rng": "eval/do_sample=False/continuous L1; request order logged; no claim of matching OpenPI noise",
+      "runtime_required": {
+        "torch": "2.9.1+cu128",
+        "torchvision": "0.24.1+cu128",
+        "transformers": "4.40.1 official fork",
+        "tensorflow-cpu": "2.15.0",
+        "timm": "0.9.10",
+        "dtype": "bfloat16",
+        "quantization": false,
+        "attention": "official fork SDPA bidirectional"
+      },
+      "render_size": 256,
+      "model_image_size": 224,
+      "image_protocol": "rotate180; TF JPEG/Lanczos3 resize224; 90% area center crop; official processor",
+      "state": "same raw8; own suite_no_noops proprio q01/q99 clip norm",
+      "action_horizon": 8,
+      "replan_steps": 8,
+      "action_protocol": "own suite q01/q99 inverse norm; official -sign(2*g-1); no client scale/clip"
+    }
+  },
+  "tasks": [
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "task_order_index": 0,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "language": "turn on the stove and put the moka pot on it",
+      "bddl_relative_path": "bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "bddl_sha256": "491835cc2eb6956f7ce3d1ee4e266377116168fe453e6529fe105e3b0333635d",
+      "init_file_relative_path": "init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "init_file_sha256": "02a8401f8d59f5447fc8c5a16f4c158dd8c426c3eaed6779927a2a53e9abf3c5",
+      "initial_states_shape": [
+        50,
+        47
+      ],
+      "first_10_state_sha256": [
+        "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+        "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+        "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+        "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+        "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+        "1a0f8034ad20898be65de30050ea599dc67c2a41d85dfecf67e4986f4d5959b3",
+        "889f77b9e981349a8cf29c6e9a841bbac3634e4562ec0aab5d2b6e0292053178",
+        "081d6d4afe3c3b25a42f3e111c17902f1719489f2b3e1323e16f83c594db8684",
+        "3addeab455f4d1a2763345a27b34d5d71e22b3cae2fff48e7efe5c9ef20fb9f6",
+        "fe4e1ad710fc072172e81cacf79f27923daa0f7b56c80ed0a8aecff90635d759"
+      ],
+      "native_goal_predicates": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "max_episode_steps": 520,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "task_order_index": 0,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "bddl_relative_path": "bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "bddl_sha256": "5255fe54d7f25fad4dee8fa30a30033d8cb908f1708d953c91ab609264fb4fb8",
+      "init_file_relative_path": "init_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "init_file_sha256": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86",
+      "initial_states_shape": [
+        50,
+        51
+      ],
+      "first_10_state_sha256": [
+        "ea2ad0a67ceabe915bc4744e8231bf7fe71bddb74ff8c67eae6c821ff82078a4",
+        "4163733ff3615b450aeebdbe916059b6c8b8f899330378fde0f00efc2f795efe",
+        "d4452cb6d293450305537a0160f36840b3351a6b381b8e487f3bf2db1b30399b",
+        "3304c9b023454e5f857390d21d8992a71c0491af9b7be42cd2b96d38fad671c9",
+        "54647cdea762ee9cf0ff2d80d17547e7a0a1c49606099f9d043c9c13308800ce",
+        "070477df0cfd5b91190ff37614027be95647932f3d641aef27173f29c5255488",
+        "fbe75ec3ec5d6c2f3a7f8d18fff9401fd432f62cdd27361955fcc752f0e06b84",
+        "391683245a32d3c7c82b6cc36bcdd2c504078798c7545bb2e617291cf8ac8c0e",
+        "c0b450c43d17bfeb06fbfa6736e68ec70a6b15e2d6c2948318c47f662ac5413a",
+        "5a55a76afddbf522462c41c3f0e9ee5823061d9632721d6f652fe855fca74736"
+      ],
+      "native_goal_predicates": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "max_episode_steps": 520,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_order_index": 0,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "bddl_relative_path": "bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "bddl_sha256": "0c6749b920bff1e1efe47ffb0e0b801a3e6959a650e710f376dd2b812c74e865",
+      "init_file_relative_path": "init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_file_sha256": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+      "initial_states_shape": [
+        50,
+        84
+      ],
+      "first_10_state_sha256": [
+        "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+        "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+        "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+        "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+        "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+        "b83253684e70aacc31a4caf328017aa7b4bf34e6320a1c999f1472c43a80e915",
+        "c5ccffa18cb4b9e735e02bf9dd64a86454f91d432a93e8af23b5e1d3a23472cc",
+        "b95581ac6ecb117121be421670abca2d7ac7cfa98d3617a80a851bf7fa2faef0",
+        "69b2841b88f91402edf81e40eb3afea98c5fa70a6a37c1a8d431a11784bfa935",
+        "3d2e8682243eea8849aa951f676fe1951030d2f89713571e23724c45d22d03e5"
+      ],
+      "native_goal_predicates": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "max_episode_steps": 520,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "task_order_index": 0,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "language": "put the yellow and white mug in the microwave and close it",
+      "bddl_relative_path": "bddl_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "bddl_sha256": "456d145f92be049f445fc77673dc583d9d17ea7afe92f6ffcb2fd1fa5565d420",
+      "init_file_relative_path": "init_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "init_file_sha256": "6b75c8d4d1e1c40b5d99c78ceea380d99ccffb0a484a4cb2d3153488a0afbbe2",
+      "initial_states_shape": [
+        50,
+        47
+      ],
+      "first_10_state_sha256": [
+        "ea7db2b727794199cfa1e42f8d924c5841e4af18716a392adf30d5517114c87f",
+        "8a1664e433521b5f995c9840cd9d41bf796b38742e57ad57786d67076de8b0cd",
+        "1cc5eefc998751de4d0e86462742176ed71a470e4846013c1a92ac47cefb9b67",
+        "ac150060868f6d48b6b53f5d8f07e71e04d3ca8883ff52edae6b0f543c05659a",
+        "e3ba923c504addfab7f0ef464e30c4de9e70f02106fdd714ce793dda722233f7",
+        "3f69e06f62cab10c9c43e3dd278e7d0cd4590b88740f7ae57b5852d1ee96f43e",
+        "7112c1d02864ebb60d6d405764cddab8bd527ca36b9377275859d8b9db93470c",
+        "5952d59cf718abd407c8c685c213a8de1b81e8c0ced22f15f4800fbcf72d52d0",
+        "0660777678d8c06056f77ba9d1f89dae13d3e6eb6b73a91e656be16e3d1a763a",
+        "b15e6a13c7a8ef65ea60b458e3f318adf4c99e9945c2be1431e76639ec2a9f2d"
+      ],
+      "native_goal_predicates": [
+        [
+          "in",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "max_episode_steps": 520,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "task_order_index": 0,
+      "task_name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "bddl_relative_path": "bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b",
+      "init_file_relative_path": "init_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "init_file_sha256": "cbbc73792ce546c9bec181fd328a411d3183074840b282671dee481511381d0a",
+      "initial_states_shape": [
+        50,
+        92
+      ],
+      "first_10_state_sha256": [
+        "4e3eaf7a315bc3bafb6db4837c8eef0e5f8aea717782a2a3ea33139392d966ed",
+        "6c2936dc25a97728b811f9db579687d011cbd231d5472e985775a67ca9892cf8",
+        "a5d4b6d871eb48c276a3fc8499e1429ec1c59df278466aa82de44a93260087a0",
+        "c12064bdc97da3ba4ca3675548ba9c76ed096ea772bbec9ca9422628c41b1588",
+        "63dbd6b627e35e377a62f3e791055bc9051a74cab6fef9eadce7892671160536",
+        "c9c2f8022034e9a0705daab34a7f5bf9947ac939dfc5cf5a0ab493a377028a02",
+        "784dba596f01025199c62c3e262748c68f1f3b6ff92df2fd36aab8b5263bc0ce",
+        "d297dd693cb3e13a607d16f211730e28c50b463f597f066ef2a424a8a036186c",
+        "3f628d77bb395ff9ff2b248e18e5dea19d9b1103ed48b55df4eafa29188bd9f0",
+        "6ccefe4bd69954c98ddc32f1acdcff81b5a66ed4304391089bbc027172b66d64"
+      ],
+      "native_goal_predicates": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "max_episode_steps": 220,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "task_order_index": 0,
+      "task_name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "bddl_relative_path": "bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+      "bddl_sha256": "53a7516571412a2f46a27cbf8482d3b76dbad4221858c8f6b565d506c274e61d",
+      "init_file_relative_path": "init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "init_file_sha256": "9b6927b6ef03460ab055141e1a1154ad85e5e290058d8ed3a8a314aff911f864",
+      "initial_states_shape": [
+        50,
+        92
+      ],
+      "first_10_state_sha256": [
+        "d116842e01703fbea595511db813a3816c8d9f2302b4e979ebec4f15b7a750a2",
+        "b8757ca36fc25bb010af8934ff98b8d3a221cbd3a5e38e7b07cc8055c3108a0b",
+        "d45a8bb759e662331e34b0ade8f7a4ca847993b682d3299aaa4894b340c845a0",
+        "9cdfce0fe3434dc2c261272bc32dd3b56956de7c14e1e6d4c8a76aa7323e0f4d",
+        "97916cb27d2a1b9650016b93bbc33aa2855dfbdd11ded29650da8357c5c418e2",
+        "d0345028d24b7dda175db33c7eb0e5c1d4df2fdf5620c51dd3641fdc77750964",
+        "74548b977713394a062b37d064eb857cc795b1dd9e3dd6f72236514b2f85404c",
+        "a45364f84a9e141a83181828fb6b8fb37a162e7e85d8636fa891064717f1f95e",
+        "dec62b7a7f186620b39af37c3354071d3b720a7c93e5de1ca14e54f28bc76d41",
+        "4c98afd093bda011d941abba6e2d53d57d3b258fe56cfdfbc4dc74d50260f9ae"
+      ],
+      "native_goal_predicates": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "max_episode_steps": 220,
+      "smoke": {
+        "initial_state_indices": [
+          49
+        ],
+        "seeds": [
+          7
+        ]
+      },
+      "formal": {
+        "initial_state_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    }
+  ]
+}

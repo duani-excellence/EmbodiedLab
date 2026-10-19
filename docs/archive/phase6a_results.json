@@ -1,0 +1,332 @@
+{
+  "date": "2026-10-16",
+  "scope": "two tasks and 13 fixed initial states; not a full LIBERO benchmark",
+  "openpi_commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+  "benchmark": {
+    "stove": {
+      "directory": "evaluation_results/phase6a_stove/20261016T075146Z_8280fdb1",
+      "status": "complete",
+      "success_rate": 1.0,
+      "completed": 5,
+      "lengths": [
+        86,
+        72,
+        66,
+        89,
+        76
+      ],
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "initial_states": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "requests": [
+        18,
+        15,
+        14,
+        18,
+        16
+      ],
+      "wall_seconds": 43.08708106103586,
+      "rpc_latency": {
+        "count": 81,
+        "first_ms": 1312.0495289913379,
+        "mean_ms": 395.8864201738407,
+        "p50_ms": 383.59176099766046,
+        "p95_ms": 402.93937595561147,
+        "max_ms": 1312.0495289913379
+      },
+      "act_latency": {
+        "count": 389,
+        "first_ms": 1313.5691619827412,
+        "mean_ms": 82.78287102059511,
+        "p50_ms": 0.02843898255378008,
+        "p95_ms": 389.4449623883702,
+        "max_ms": 1313.5691619827412
+      },
+      "env_step_latency": {
+        "count": 389,
+        "first_ms": 7.980777008924633,
+        "mean_ms": 9.928320728453082,
+        "p50_ms": 7.805587956681848,
+        "p95_ms": 23.594802385196083,
+        "max_ms": 26.184371032286435
+      },
+      "model_sync_ms": {
+        "first": 988.6983860051259,
+        "mean": 383.14674898800956,
+        "p50": 375.3310890169814,
+        "p95": 394.61696398211643
+      },
+      "server_request_indices": [
+        0,
+        80
+      ],
+      "projection_counts": [
+        53,
+        46,
+        31,
+        48,
+        59
+      ],
+      "max_overshoot": 0.009483147152065996
+    },
+    "drawer": {
+      "directory": "evaluation_results/phase6a_drawer/20261016T075229Z_c5df7a9f",
+      "status": "complete",
+      "success_rate": 1.0,
+      "completed": 8,
+      "lengths": [
+        122,
+        128,
+        113,
+        119,
+        113,
+        119,
+        124,
+        139
+      ],
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "initial_states": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "requests": [
+        25,
+        26,
+        23,
+        24,
+        23,
+        24,
+        25,
+        28
+      ],
+      "wall_seconds": 98.62192040798254,
+      "rpc_latency": {
+        "count": 198,
+        "first_ms": 376.2633230071515,
+        "mean_ms": 391.54119442529844,
+        "p50_ms": 387.67229599761777,
+        "p95_ms": 419.8046069126576,
+        "max_ms": 436.1390459816903
+      },
+      "act_latency": {
+        "count": 977,
+        "first_ms": 377.91263102553785,
+        "mean_ms": 79.68653867234731,
+        "p50_ms": 0.02922298153862357,
+        "p95_ms": 398.41518002795056,
+        "max_ms": 437.5215980107896
+      },
+      "env_step_latency": {
+        "count": 977,
+        "first_ms": 22.856457973830402,
+        "mean_ms": 9.756059718996042,
+        "p50_ms": 7.551221002358943,
+        "p95_ms": 22.89931561099364,
+        "max_ms": 39.38206599559635
+      },
+      "model_sync_ms": {
+        "first": 366.9282890041359,
+        "mean": 383.25102063603794,
+        "p50": 379.1244135063607,
+        "p95": 412.3592989257304
+      },
+      "server_request_indices": [
+        81,
+        278
+      ],
+      "projection_counts": [
+        77,
+        79,
+        71,
+        80,
+        85,
+        78,
+        85,
+        71
+      ],
+      "max_overshoot": 0.009894542444825127
+    },
+    "official_reference": {
+      "status": "complete",
+      "success": true,
+      "length": 84,
+      "wall_seconds": 18.318572177988244,
+      "executed_outside_unit_count": 45,
+      "first_rpc_ms": 9043.457230000058,
+      "first_sync_ms": 8761.883777973708
+    },
+    "nvml_reference": {
+      "samples": 31,
+      "max_mib": 8716.0
+    },
+    "nvml_no_triton": {
+      "samples": 55171,
+      "unavailable_samples": 1,
+      "max_mib": 8792.0
+    },
+    "nvml_benchmark": {
+      "samples": 713,
+      "unavailable_samples": 1,
+      "max_mib": 8814.0
+    }
+  },
+  "fresh_bc_regression": {
+    "replay": {
+      "stove": {
+        "recorded_length": 86,
+        "replay_length": 86,
+        "max_robot_state_deviation": 0.0,
+        "max_joint_position_deviation": 0.0,
+        "max_rgb_pixel_deviation": 0,
+        "max_reward_deviation": 0.0,
+        "max_timestamp_deviation": 0.0,
+        "language_match": true,
+        "terminated_match": true,
+        "truncated_match": true,
+        "success_match": true,
+        "matches": true
+      },
+      "drawer": {
+        "recorded_length": 122,
+        "replay_length": 122,
+        "max_robot_state_deviation": 0.0,
+        "max_joint_position_deviation": 0.0,
+        "max_rgb_pixel_deviation": 0,
+        "max_reward_deviation": 0.0,
+        "max_timestamp_deviation": 0.0,
+        "language_match": true,
+        "terminated_match": true,
+        "truncated_match": true,
+        "success_match": true,
+        "matches": true
+      }
+    },
+    "stove": {
+      "path": "evaluation_results/phase6a_bc_regression_stove/20261016T080459Z_74012f58/results.json",
+      "success_rate": 0.6,
+      "lengths": [
+        225,
+        300,
+        300,
+        113,
+        109
+      ],
+      "checkpoint_unchanged": true
+    },
+    "drawer": {
+      "path": "evaluation_results/phase6a_bc_regression_drawer/20261016T080515Z_8b572e34/results.json",
+      "success_rate": 0.5,
+      "lengths": [
+        300,
+        300,
+        293,
+        242,
+        208,
+        300,
+        214,
+        300
+      ],
+      "checkpoint_unchanged": true
+    }
+  },
+  "tests": {
+    "gpu": {
+      "passed": 192,
+      "seconds": 27.68
+    },
+    "cpu": {
+      "passed": 188,
+      "skipped_cuda": 4,
+      "seconds": 26.94
+    }
+  },
+  "restarted_server_parity": {
+    "scope": "two actual freshly launched official key(0) servers; same real initial observation, seed42, initial0",
+    "prompt_equal": true,
+    "images_equal": true,
+    "state_max_error": 0.0,
+    "first_raw_chunk_max_error": 0.0,
+    "all_issued_actions_max_error": 0.0,
+    "length_pair": [
+      86,
+      86
+    ]
+  },
+  "disconnect": {
+    "scope": "real model + real native simulation + deliberately closed actual websocket",
+    "completed_steps": 5,
+    "success": null,
+    "excluded_from_benchmark": true,
+    "error": {
+      "type": "ConnectionClosedOK",
+      "message": "sent 1000 (OK); then received 1000 (OK)"
+    },
+    "recording_complete": false,
+    "env_closed": true,
+    "policy_closed": true,
+    "recorder_closed": true,
+    "request_attempts": 2
+  },
+  "cleanup": {
+    "server_pid": 588528,
+    "terminated_by_this_phase": true,
+    "server_absent_from_nvml": true
+  },
+  "preservation": {
+    "data": {
+      "original_entries_checked": 306,
+      "files_rehashed": 306
+    },
+    "training_results": {
+      "original_entries_checked": 52,
+      "files_rehashed": 52
+    },
+    "evaluation_results": {
+      "original_entries_checked": 104,
+      "files_rehashed": 104
+    },
+    ".deps": {
+      "original_entries_checked": 2781,
+      "files_rehashed": 0
+    },
+    ".venv": {
+      "original_entries_checked": 5591,
+      "files_rehashed": 0
+    },
+    ".venv-libero": {
+      "original_entries_checked": 36228,
+      "files_rehashed": 0
+    },
+    ".venv-libero-gpu": {
+      "original_entries_checked": 37789,
+      "files_rehashed": 0
+    },
+    "issues": []
+  }
+}

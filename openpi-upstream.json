@@ -1,0 +1,143 @@
+{
+  "source": {
+    "repository": "https://github.com/Physical-Intelligence/openpi",
+    "commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+    "uv_lock_sha256": "793488b5a55bb87200db90a61fd0af51922b686d94e1da4f4c587ab119b37d74",
+    "client_subdirectory": "packages/openpi-client"
+  },
+  "checkpoint": {
+    "uri": "gs://openpi-assets/checkpoints/pi05_libero",
+    "format": "JAX Orbax OCDBT",
+    "config": "pi05_libero",
+    "files": [
+      {
+        "path": "assets/physical-intelligence/libero/norm_stats.json",
+        "expected_size": 1914,
+        "expected_crc32c": "l595yA==",
+        "generation": "1757354341826612",
+        "sha256": "b3a44bb2810436fb62917decaea58bd4d9110255df527dea21e8fd40c960bd84"
+      },
+      {
+        "path": "params/_METADATA",
+        "expected_size": 23493,
+        "expected_crc32c": "Pv6Rvg==",
+        "generation": "1757354341847223",
+        "sha256": "303a4e354814928e1d29b75e310f2c1ac7e7e29b62f48395b631045ca1cffc73"
+      },
+      {
+        "path": "params/_sharding",
+        "expected_size": 17952,
+        "expected_crc32c": "LEfJOw==",
+        "generation": "1757354341829429",
+        "sha256": "63f4c57ba6ff10f4132a639b9942eabcc26942eb34081be1d93bf7ddab816501"
+      },
+      {
+        "path": "params/array_metadatas/process_0",
+        "expected_size": 9062,
+        "expected_crc32c": "PlgOXQ==",
+        "generation": "1757354341837422",
+        "sha256": "2b29474f08aa50922da11074deb4d7f35e30f0071a088a30f40df88edc1ebdb0"
+      },
+      {
+        "path": "params/d/98a77a52a8eb845ae4830eb7fe983979",
+        "expected_size": 42307,
+        "expected_crc32c": "SGdLxw==",
+        "generation": "1757354341898666",
+        "sha256": "93b39327a1552b06b1b6ce5190d58131297bcca66c3f2a099bbb2882df7759af"
+      },
+      {
+        "path": "params/manifest.ocdbt",
+        "expected_size": 120,
+        "expected_crc32c": "SGdLxw==",
+        "generation": "1757354341840925",
+        "sha256": "65246951e69bd2b5118e609646bc9e8c439229bccbc1325643833aeb74f77104"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/0eaaecefaa9720d30a32cc56e65fd345",
+        "expected_size": 2449323387,
+        "expected_crc32c": "RnXVZg==",
+        "generation": "1757354342041664",
+        "sha256": "0d4412552d4a69fba953f824a60d005ee7559822a9c1c16684906c7f0801b848"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/155391c1cbf93a1be16266de052e5b48",
+        "expected_size": 2307885530,
+        "expected_crc32c": "Zdn1CA==",
+        "generation": "1757354341926731",
+        "sha256": "ad09cf4b2cacc0628c713afbb1ee9decfd36e295fdacae111c1e0c5eeeb6cc00"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/2b6985f48e9da86f68627a7608c5bc25",
+        "expected_size": 1077,
+        "expected_crc32c": "SGdLxw==",
+        "generation": "1757354341840735",
+        "sha256": "3b81b2e8afe1456a4584d19dcf600f2bb6f27beff9f061b336f06657a11d5cb5"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/475fab3ee8821662585a8cde3eb32e22",
+        "expected_size": 2150232827,
+        "expected_crc32c": "yuEuTQ==",
+        "generation": "1757354341938583",
+        "sha256": "624a529b0b5f07bf535e07eba4f823e47fdde66a3d0b38295a35ac9d60cfcf0f"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/6c54da5a6f62c20a09c0f3f8c3329e00",
+        "expected_size": 1608436908,
+        "expected_crc32c": "gpmyhg==",
+        "generation": "1757354341906218",
+        "sha256": "1a5f80ef1aeaa82e70cca883c4d95da65bd410c8da19729d4814317533ba11f5"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/896bf93c5cf2e8ddd274a6ea0a2feec0",
+        "expected_size": 2240080987,
+        "expected_crc32c": "4+0XtA==",
+        "generation": "1757354341915025",
+        "sha256": "c92342da7593219debce6133f148f3c24ece184ff53f9f4bac800c09fcc6dc1a"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/bc613ff288a162563e622d01bb60622a",
+        "expected_size": 217,
+        "expected_crc32c": "SGdLxw==",
+        "generation": "1757354341886074",
+        "sha256": "1e99d5876e6b8db2e12c43c8079f6b98cffac2c26bbd84e59cc505e983d146d2"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/bda87d9791f23df771cd2d15293780cc",
+        "expected_size": 2926522,
+        "expected_crc32c": "Ibt0iQ==",
+        "generation": "1757354341848154",
+        "sha256": "9c717ff13084524b74f330803421b8a261bc3009a477c933e1e1a1477a796fc3"
+      },
+      {
+        "path": "params/ocdbt.process_0/d/efbb46173882cb35ed41ffe0c2db8a5e",
+        "expected_size": 1680102856,
+        "expected_crc32c": "nhZ3lQ==",
+        "generation": "1757354341921326",
+        "sha256": "6e62d35e0689dc12779d0b2e65304823d6787fdd4ccd754c9ebd059fdc4b6765"
+      },
+      {
+        "path": "params/ocdbt.process_0/manifest.ocdbt",
+        "expected_size": 322,
+        "expected_crc32c": "SGdLxw==",
+        "generation": "1757354341843968",
+        "sha256": "3bf70fbb0fac151675595b33aeb8203139e8809de17d606574ab606a758b3591"
+      }
+    ],
+    "total_bytes": 12439085481,
+    "source_identity_sha256": "d648396a09ba9648267eeb933810ae6bd51a1b26d376966e53175e574c625848",
+    "content_sha256": "d9104dfdea46eca2fadf05ec7fc478b19d39b19aa8dfda0e6adedcd6d6b6efac"
+  },
+  "protocol": {
+    "render_size": 256,
+    "model_image_size": 224,
+    "rotation_degrees": 180,
+    "action_horizon": 10,
+    "replan_steps": 5,
+    "settle_steps": 10,
+    "server_rng": "key(0), advances per inference, not reset per episode",
+    "tested_backend": "jax 0.5.3",
+    "tested_gpu": "NVIDIA GeForce RTX 5090 D v2",
+    "xla_flags": "--xla_gpu_enable_triton_gemm=false",
+    "ptxas": "12.9.41 from isolated environment"
+  }
+}

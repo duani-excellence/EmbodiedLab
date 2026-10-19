@@ -1,0 +1,276 @@
+{
+  "scope": "Observed Phase6B validation results; aggregate of preserved local evidence, not synthetic benchmark outcomes.",
+  "manifest_sha256": "7fab88133ff8816d4867389114c80da1b5f935c1aadf2e135deeff9f4ac0b105",
+  "tests": {
+    "gpu": {
+      "passed": 308,
+      "skipped": 0,
+      "warnings": 14,
+      "seconds": 28.49,
+      "log_identity": {
+        "bytes": 1928,
+        "sha256": "9f6141576eddb6bc3134e9376884fd7cd647523f065369f6b3092a5eb6bafae9"
+      }
+    },
+    "cpu": {
+      "passed": 304,
+      "skipped": 4,
+      "skip_reason": "CUDA-only checks on CPU Torch",
+      "warnings": 13,
+      "seconds": 28.09,
+      "log_identity": {
+        "bytes": 1927,
+        "sha256": "e797ceacbadf3faa5fb6514aa16845d2a7d6f7d82fc4ec2a2e473e0107d5545f"
+      }
+    }
+  },
+  "replay_openpi": {
+    "long_success": {
+      "recorded_length": 247,
+      "replay_length": 247,
+      "max_robot_state_deviation": 0.0,
+      "max_joint_position_deviation": 0.0,
+      "max_rgb_pixel_deviation": 0,
+      "max_reward_deviation": 0.0,
+      "max_timestamp_deviation": 0.0,
+      "language_match": true,
+      "terminated_match": true,
+      "truncated_match": true,
+      "success_match": true,
+      "matches": true
+    },
+    "long_timeout": {
+      "recorded_length": 520,
+      "replay_length": 520,
+      "max_robot_state_deviation": 0.0,
+      "max_joint_position_deviation": 0.0,
+      "max_rgb_pixel_deviation": 0,
+      "max_reward_deviation": 0.0,
+      "max_timestamp_deviation": 0.0,
+      "language_match": true,
+      "terminated_match": true,
+      "truncated_match": true,
+      "success_match": true,
+      "matches": true
+    },
+    "spatial_success": {
+      "recorded_length": 109,
+      "replay_length": 109,
+      "max_robot_state_deviation": 0.0,
+      "max_joint_position_deviation": 0.0,
+      "max_rgb_pixel_deviation": 0,
+      "max_reward_deviation": 0.0,
+      "max_timestamp_deviation": 0.0,
+      "language_match": true,
+      "terminated_match": true,
+      "truncated_match": true,
+      "success_match": true,
+      "matches": true
+    }
+  },
+  "replay_oft": {
+    "method": "Existing scripts/replay_libero.py; actual native hard reset from recorded seed/init followed by recorded actions; no state injection, policy, or model requests.",
+    "numeric_atol": 1e-06,
+    "pixel_atol": 0,
+    "rendering": "headless EGL",
+    "episodes": [
+      {
+        "label": "long_success",
+        "suite": "libero_10",
+        "task_id": 2,
+        "init_state_index": 0,
+        "seed": 42,
+        "record_path": "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/records/episode_000/episode_000.hdf5",
+        "source_results": "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/results.json",
+        "log_path": "DIAGNOSTICS/replay_oft_long_success.log",
+        "command": [
+          "PROJECT/.venv-libero-gpu/bin/python",
+          "scripts/replay_libero.py",
+          "--episode",
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/records/episode_000/episode_000.hdf5"
+        ],
+        "returncode": 0,
+        "wall_seconds": 4.924144720949698,
+        "input_sha256": {
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/results.json": "178b049ed813e475d00583164c6f98b317b7ce6341b53d340e51300606af7f1d",
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/records/episode_000/episode_000.hdf5": "cdb0e3ce1cc66d45e2764141cc7d43579fc89d67dbb3bfd89cb4359f08ce9964",
+          "PROJECT/benchmark_manifest.json": "7fab88133ff8816d4867389114c80da1b5f935c1aadf2e135deeff9f4ac0b105"
+        },
+        "inputs_unchanged": {
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/results.json": true,
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_10/task_2/20261016T143152Z_4317c5e6/records/episode_000/episode_000.hdf5": true,
+          "PROJECT/benchmark_manifest.json": true
+        },
+        "replay": {
+          "recorded_length": 245,
+          "replay_length": 245,
+          "max_robot_state_deviation": 0.0,
+          "max_joint_position_deviation": 0.0,
+          "max_rgb_pixel_deviation": 0,
+          "max_reward_deviation": 0.0,
+          "max_timestamp_deviation": 0.0,
+          "language_match": true,
+          "terminated_match": true,
+          "truncated_match": true,
+          "success_match": true,
+          "matches": true
+        }
+      },
+      {
+        "label": "spatial_success",
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "init_state_index": 0,
+        "seed": 42,
+        "record_path": "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/records/episode_000/episode_000.hdf5",
+        "source_results": "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/results.json",
+        "log_path": "DIAGNOSTICS/replay_oft_spatial_success.log",
+        "command": [
+          "PROJECT/.venv-libero-gpu/bin/python",
+          "scripts/replay_libero.py",
+          "--episode",
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/records/episode_000/episode_000.hdf5"
+        ],
+        "returncode": 0,
+        "wall_seconds": 4.493263721989933,
+        "input_sha256": {
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/results.json": "a1c3f07017bc6c55c9a9ee4e2a16d85fe4148a7fd66326fcc2e9ac2f8ea6bf32",
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/records/episode_000/episode_000.hdf5": "a433b62d7af9ab40bd064721535f8f37644df8028039e7aff658db97aabbb273",
+          "PROJECT/benchmark_manifest.json": "7fab88133ff8816d4867389114c80da1b5f935c1aadf2e135deeff9f4ac0b105"
+        },
+        "inputs_unchanged": {
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/results.json": true,
+          "PROJECT/evaluation_results/phase6b_formal_openvla/libero_spatial/task_0/20261016T143615Z_e1828a37/records/episode_000/episode_000.hdf5": true,
+          "PROJECT/benchmark_manifest.json": true
+        },
+        "replay": {
+          "recorded_length": 75,
+          "replay_length": 75,
+          "max_robot_state_deviation": 0.0,
+          "max_joint_position_deviation": 0.0,
+          "max_rgb_pixel_deviation": 0,
+          "max_reward_deviation": 0.0,
+          "max_timestamp_deviation": 0.0,
+          "language_match": true,
+          "terminated_match": true,
+          "truncated_match": true,
+          "success_match": true,
+          "matches": true
+        }
+      }
+    ]
+  },
+  "bc_regression": {
+    "stove": {
+      "success_rate": 0.6,
+      "lengths": [
+        225,
+        300,
+        300,
+        113,
+        109
+      ],
+      "checkpoint_unchanged": true
+    },
+    "drawer": {
+      "success_rate": 0.5,
+      "lengths": [
+        300,
+        300,
+        293,
+        242,
+        208,
+        300,
+        214,
+        300
+      ],
+      "checkpoint_unchanged": true
+    }
+  },
+  "official_oft_adapter_closed_loop_parity": {
+    "scope": "two actual independently reset native episodes: direct official model loop versus adapter; no state injection",
+    "lengths": [
+      73,
+      73
+    ],
+    "action_max_error": 0.0,
+    "success_pair": [
+      true,
+      true
+    ]
+  },
+  "resource": {
+    "openpi": {
+      "valid_nvml_samples": 975,
+      "observed_sampled_peak_mib": 8990.0,
+      "first_observed_mib": 8990.0,
+      "last_observed_mib": 8990.0,
+      "observed_span_seconds": 993.7700793743134
+    },
+    "openvla_oft": {
+      "valid_nvml_samples": 557,
+      "observed_sampled_peak_mib": 16150.0,
+      "first_observed_mib": 16150.0,
+      "last_observed_mib": 16150.0,
+      "observed_span_seconds": 569.8906757831573
+    }
+  },
+  "formal_models_released": {
+    "openpi": true,
+    "openvla_oft": true
+  },
+  "analysis_input_integrity": {
+    "all_unchanged": true,
+    "files": 387,
+    "total_bytes": 3536270267,
+    "method": "SHA256 streamed in 1MiB blocks before/after analysis; no RGB sequence loading."
+  },
+  "video_validation": {
+    "video_count": 13,
+    "all_exact_T_plus_1": true,
+    "all_first_last_decoded": true
+  },
+  "asset_guards": {
+    "six_real_env_guards_passed": true,
+    "no_reset_step_model_in_asset_check": true,
+    "saved_real_handshakes_passed": true,
+    "manifest_unchanged": true
+  },
+  "old_data_protection": {
+    "data": {
+      "original_entries_checked": 306,
+      "files_rehashed": 306
+    },
+    "training_results": {
+      "original_entries_checked": 52,
+      "files_rehashed": 52
+    },
+    "evaluation_results": {
+      "original_entries_checked": 104,
+      "files_rehashed": 104
+    },
+    ".deps": {
+      "original_entries_checked": 2781,
+      "files_rehashed": 0
+    },
+    ".venv": {
+      "original_entries_checked": 5591,
+      "files_rehashed": 0
+    },
+    ".venv-libero": {
+      "original_entries_checked": 36228,
+      "files_rehashed": 0
+    },
+    ".venv-libero-gpu": {
+      "original_entries_checked": 37789,
+      "files_rehashed": 0
+    },
+    "issues": []
+  },
+  "download_smoke": {
+    "fresh_official_file": "added_tokens.json",
+    "bytes": 21,
+    "copied_from_cache": false,
+    "verification_status": "verified"
+  }
+}

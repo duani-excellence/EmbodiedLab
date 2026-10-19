@@ -59,7 +59,7 @@ def bc_loss(output: dict[str, torch.Tensor], action: torch.Tensor) -> dict[str, 
         raise ValueError('Expected action shape (B,7)')
     gripper = action[:, 6]
     if not torch.all((gripper == -1) | (gripper == 1)):
-        raise ValueError('This stove model supports only -1/+1 gripper labels; 0 hold is unobserved')
+        raise ValueError('VisualBC supports only -1/+1 gripper labels; 0 hold is unsupported')
     motion_mse = F.mse_loss(output['motion'], action[:, :6])
     gripper_ce = F.cross_entropy(output['gripper_logits'], (gripper > 0).long())
     return {'loss': motion_mse + gripper_ce, 'motion_mse': motion_mse, 'gripper_ce': gripper_ce}

@@ -7,7 +7,7 @@
 | [stove_task7.json](stove_task7.json) | task 7，turn_on_the_stove | `387fc10747696b80dea6ed8d7f2beaa162bf92ae11750b241073cbd33aac73d5` |
 | [drawer_task0.json](drawer_task0.json) | task 0，open_the_middle_drawer_of_the_cabinet | `20252c7cf98cd7437061f7f200ae7b6cb6219fabbd53b4536dfaa8abda6ab737` |
 
-公开副本仅将原审核记录中的本机路径替为占位符；测量值没有改写。`reproduce_command` 记载历史实验上下文，包含未随仓库分发的当时辅助脚本路径，不能原样执行。当前数据检查入口是 `tools/inspect_dataset.py` 和 `tools/inspect_torch_dataset.py`，主流程见[README](../../README.md)。原始完整审核文件继续保留在本机实验目录。
+公开副本仅将原审核记录中的本机路径替为占位符；测量值没有改写。`reproduce_command` 记载历史实验上下文，包含未随仓库分发的当时辅助脚本路径，不能原样执行。当前数据查看入口是 `tools/inspect_dataset.py`，训练来源与对齐校验由 `LiberoTorchDataset` 执行，主流程见[README](../../README.md)。原始完整审核文件继续保留在本机实验目录。
 
 两份来源均验证为 post-action observation，训练采用 `obs[t-1] → action[t]`；这不是对其他 HDF5 的默认假设。运行时审核清单位于 `src/embodiedlab/data/verified_sources.json`，未知或被修改的数据会被拒绝。抽屉数据中的旧任务别名通过精确文件指纹对应当前 task 0。
 

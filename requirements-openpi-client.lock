@@ -1,0 +1,7 @@
+# Additions to either verified LIBERO environment; install into an optional target.
+# Install openpi-client from the pinned source's packages/openpi-client directory.
+# NumPy/Pillow/attrs/absl/typing-extensions remain fixed by the LIBERO locks.
+dm-tree==0.1.9
+msgpack==1.1.2
+websockets==15.0.1
+wrapt==1.17.3

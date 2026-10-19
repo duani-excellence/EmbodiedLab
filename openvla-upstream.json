@@ -1,0 +1,214 @@
+{
+  "source": {
+    "repository": "https://github.com/moojink/openvla-oft",
+    "commit": "e4287e94541f459edc4feabc4e181f537cd569a8"
+  },
+  "transformers": {
+    "repository": "https://github.com/moojink/transformers-openvla-oft",
+    "commit": "bc339d9ad707454c0c115970db43c260067c61ab"
+  },
+  "dlimp": {
+    "repository": "https://github.com/moojink/dlimp_openvla",
+    "commit": "040105d256bd28866cc6620621a3d5f7b6b91b46"
+  },
+  "checkpoint": {
+    "repo_id": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 549,
+        "sha256": "c210ba9f44c56b40b49b10b85d436df0b0b9d19b4eee7a784d4269546ca3b560",
+        "source_git_blob": "f2e3b7cfdf97b6a04236390889372e0780d8e874",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 2953,
+        "sha256": "8855f7d4f2021a75326b6ee8c7d819f1baaf77afb3c58bc1872a1f400695b85b",
+        "source_git_blob": "f644f6198c2e9f9d1bb00728e2155e9d6620c0e3",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "action_head--300000_checkpoint.pt",
+        "size": 302242674,
+        "sha256": "f9647226ca9a1ee64ff8ed1ec380c89110afc6fc2bf6d0ae463cc4023165b4dc",
+        "source_git_blob": "d859fc8a8d382485e0030070c2e82808ab458b2e",
+        "source_lfs_sha256": "f9647226ca9a1ee64ff8ed1ec380c89110afc6fc2bf6d0ae463cc4023165b4dc"
+      },
+      {
+        "path": "added_tokens.json",
+        "size": 21,
+        "sha256": "ab43123267b190cb7990bc9f2ae4ad32dcb7ed029fb0fccb1b4e062c6f54a2a1",
+        "source_git_blob": "8671820d1bb0dfd4dd92d5bd0fa9b5a7773f843e",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "config.json",
+        "size": 60712,
+        "sha256": "edd5c5cf6d7927e07465cf086ebe41f7b3ec8f3b128a51f71d6db14dad7ad8b1",
+        "source_git_blob": "42ea81c7c783049559839e305afdfe97e30581a3",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "configuration_prismatic.py",
+        "size": 5865,
+        "sha256": "68cc5ae34f1b46af3168d8d479cb81bb776965653453fd904aa8eefb6c8f9f68",
+        "source_git_blob": "c2625753c4da1a6ef274a02645d4086bc7a7fb2b",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "dataset_statistics.json",
+        "size": 11871,
+        "sha256": "6ec6ef68d0d5bae4cb5f9fc9acb715a22b9f4545e9e9b300d0d88695cd7afec3",
+        "source_git_blob": "abde7987899224c1931d3c456d9729a469d72952",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "generation_config.json",
+        "size": 136,
+        "sha256": "67fbe17b12e8beb5be98eb911483971cc78589e51a37ac0cce9cd499d06a8bf1",
+        "source_git_blob": "2cefc1e51e6ccfe846d2b509ced403df73a8efe2",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "lora_adapter/README.md",
+        "size": 5034,
+        "sha256": "1acb533904cd9931276014499b51c98c0fc8e3eab8962de7b971547116068383",
+        "source_git_blob": "ca63c32116d440d1cc7fe5699b949433ab71e3b2",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "lora_adapter/adapter_config.json",
+        "size": 813,
+        "sha256": "dfcbad210b6c953252f5c959c694a033c2df9a0092e14ef67ee4e24c0256c5a7",
+        "source_git_blob": "dcd87a65ba5b81669e3c63e039df73624ae30ddd",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "lora_adapter/adapter_model.safetensors",
+        "size": 484458600,
+        "sha256": "2e895d13475d45fa79b9d8a71c952b526fa1ba23dfe15c73b8c0518351d660e7",
+        "source_git_blob": "3ed92175af09cddcfc5139970b86274aaca86082",
+        "source_lfs_sha256": "2e895d13475d45fa79b9d8a71c952b526fa1ba23dfe15c73b8c0518351d660e7"
+      },
+      {
+        "path": "model-00001-of-00004.safetensors",
+        "size": 4925122448,
+        "sha256": "8b30a7951e68703e1731957190d9f1d6e1eaa82f05b53909608eb0510875b11d",
+        "source_git_blob": "a0af2d8fac497dc03ca12ea30c9d5f0909e09189",
+        "source_lfs_sha256": "8b30a7951e68703e1731957190d9f1d6e1eaa82f05b53909608eb0510875b11d"
+      },
+      {
+        "path": "model-00002-of-00004.safetensors",
+        "size": 4947392496,
+        "sha256": "af4773166950ddda1da6b3c5367796a52e7d5e7216f97041d9ad0721a25e53fe",
+        "source_git_blob": "5c64bcec942998c991300215fa495c7d4ec91fd1",
+        "source_lfs_sha256": "af4773166950ddda1da6b3c5367796a52e7d5e7216f97041d9ad0721a25e53fe"
+      },
+      {
+        "path": "model-00003-of-00004.safetensors",
+        "size": 4947417456,
+        "sha256": "5a62791dd46ec4a85b353920aa07eff3582ceb5e9b6b853ad0f38de36fcab75d",
+        "source_git_blob": "fcc9ebe93ed6b3d7c41e9315aed556cf57996696",
+        "source_lfs_sha256": "5a62791dd46ec4a85b353920aa07eff3582ceb5e9b6b853ad0f38de36fcab75d"
+      },
+      {
+        "path": "model-00004-of-00004.safetensors",
+        "size": 262668432,
+        "sha256": "a877e3fece1feafb80f59f91585ce04379ee39e2bf9a25cb7b4acf237e896e60",
+        "source_git_blob": "57ef905a83f317f4d0d5f9e5a5611f97c45b7f5d",
+        "source_lfs_sha256": "a877e3fece1feafb80f59f91585ce04379ee39e2bf9a25cb7b4acf237e896e60"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size": 94764,
+        "sha256": "ca8b53fed8133ee2afcd2fc483de8febf7f5bb0f6bcb09f91189772e59e8f659",
+        "source_git_blob": "bd7cc8ff8070ead248023feae55303f5a3b900d1",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "modeling_prismatic.py",
+        "size": 49029,
+        "sha256": "f40ee7883e16aab1a2d89b6e8f31cc81f6b8055120b1fefe169e05c7031098fa",
+        "source_git_blob": "9013a4f57eb18fa770efcbe9d0a1445d6c16bb72",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "preprocessor_config.json",
+        "size": 1650,
+        "sha256": "bd024783fb785cbdfe35b710b621c5e8678d4c157a9ba625675e67d40d1757da",
+        "source_git_blob": "92975ace548590d24f65f497d7610af3b92b4dcd",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "processing_prismatic.py",
+        "size": 12718,
+        "sha256": "06563586bbc73d36501a14a231a3174904ede830d33174d0c625ece8e931ef1e",
+        "source_git_blob": "3f2daaf82c3b8946fe57596f656f14a031eaef93",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "processor_config.json",
+        "size": 130,
+        "sha256": "167e026d8121f6cb0bf5c18310b97ba8139152f970822bb3824213bd37dc7a76",
+        "source_git_blob": "f892f8a8f53e2f3603a7cf86043a1add317c1787",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "proprio_projector--300000_checkpoint.pt",
+        "size": 67275256,
+        "sha256": "1792c6e19381d3c7c814e2d49836a855d3a38b0693919416f52b3c5af39505c8",
+        "source_git_blob": "e76a6f41c937b79723ffaca35c774fcdbd1407e8",
+        "source_lfs_sha256": "1792c6e19381d3c7c814e2d49836a855d3a38b0693919416f52b3c5af39505c8"
+      },
+      {
+        "path": "special_tokens_map.json",
+        "size": 552,
+        "sha256": "cb90ee5cf5793aa444039af9795b00db59d3fef8942e7eca9cf1990bab370d61",
+        "source_git_blob": "ab75c8e0a22550f0667501a0c52758f071a9efd8",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "tokenizer.json",
+        "size": 1842976,
+        "sha256": "8f5e2869e1807b8bb3c7717a294539c37e9de5d728ad60e31ef57e83cc5ea527",
+        "source_git_blob": "591f1fc6ff695d967513100f707e66d5bf731414",
+        "source_lfs_sha256": null
+      },
+      {
+        "path": "tokenizer.model",
+        "size": 499723,
+        "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+        "source_git_blob": "6c00c742ce03c627d6cd5b795984876fa49fa899",
+        "source_lfs_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "size": 1192,
+        "sha256": "f5f1d3ed015ebb71cf11686ff00bc8e0c25957bbf3952f95312cecc9b168fbea",
+        "source_git_blob": "d39defd338dee423ae0a71abfd7ea69a44fb1e52",
+        "source_lfs_sha256": null
+      }
+    ],
+    "total_bytes": 15939168050,
+    "content_sha256": "a7a086ac19e0f16b7d8afd2feca1246f6f563a3ced306ad5e196f11458b9216e",
+    "fingerprint_convention": "SHA256 canonical JSON sorted file identities, sort_keys=True, separators comma/colon; expected hashes pinned independently of download completion"
+  },
+  "protocol": {
+    "raw_render": 256,
+    "model_images": 224,
+    "center_crop_area": 0.9,
+    "state_dim": 8,
+    "action_dim": 7,
+    "action_horizon": 8,
+    "replan_steps": 8,
+    "torch": "2.9.1+cu128",
+    "transformers": "4.40.1 official fork",
+    "tensorflow-cpu": "2.15.0",
+    "dtype": "bfloat16",
+    "quantization": false,
+    "model_seed": 42
+  },
+  "runtime_lock_sha256": "8d14f14fee65146ec704bd3720430d8574e92e451f5d4afb975d9c5bcf1e0fbe"
+}

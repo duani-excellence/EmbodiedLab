@@ -7,13 +7,11 @@ from pathlib import Path
 from time import perf_counter
 from uuid import uuid4
 
-import mujoco
 import numpy as np
 import torch
 
-from embodiedlab.data.episode import EpisodeDataset
 from embodiedlab.envs.libero_env import LiberoEnv
-from embodiedlab.evaluation import evaluate_task
+from embodiedlab.evaluation import evaluate_task, save_preview, task_diagnostics
 from embodiedlab.interfaces import Action, Info, Observation
 from embodiedlab.policies.bc import BCPolicy
 from embodiedlab.policies.simple import ZeroPolicy
@@ -46,46 +44,6 @@ def resource_usage(device: str) -> dict:
         result.update(cuda_allocated_mib=torch.cuda.memory_allocated() / 2**20,
                       cuda_reserved_mib=torch.cuda.memory_reserved() / 2**20)
     return result
-
-
-def task_diagnostics(env: LiberoEnv) -> dict:
-    """Read object joints and robot/external contacts; no task-specific goal logic."""
-    model, data = env._env.sim.model, env._env.sim.data
-    joints = {}
-    for index in range(model.njnt):
-        name = model.joint_id2name(index)
-        if name and not name.startswith(('robot', 'gripper')):
-            start = model.jnt_qposadr[index]
-            width = {0: 7, 1: 4, 2: 1, 3: 1}[int(model.jnt_type[index])]
-            joints[name] = data.qpos[start:start + width].tolist()
-    robot = env._env.robots[0]
-    robot_ids = {model.geom_name2id(name) for name in
-                 (*robot.robot_model.contact_geoms, *robot.gripper.contact_geoms)}
-    contacts = []
-    for index, contact in enumerate(data.contact[:data.ncon]):
-        if (contact.geom1 in robot_ids) != (contact.geom2 in robot_ids):
-            force = np.zeros(6)
-            mujoco.mj_contactForce(model._model, data._data, index, force)
-            contacts.append({'geoms': [model.geom_id2name(i) or str(i)
-                                      for i in (contact.geom1, contact.geom2)],
-                             'normal_force_N': float(abs(force[0]))})
-    return {'object_joint_positions': joints, 'robot_external_contacts': contacts}
-
-
-def save_preview(record_path: Path, target: Path) -> None:
-    """Six paired frames; rotate only the display 180 degrees, never model input."""
-    from PIL import Image, ImageDraw
-    with EpisodeDataset(record_path) as episode:
-        steps = sorted(set(np.linspace(0, len(episode), 6, dtype=int).tolist()))
-        canvas = Image.new('RGB', (256 * len(steps), 552), 'white')
-        draw = ImageDraw.Draw(canvas)
-        for column, step in enumerate(steps):
-            observation = episode.observation(step)
-            draw.text((column * 256 + 5, 4), f'step {step}', fill='black')
-            for row, key in enumerate(('agentview_image', 'wrist_image')):
-                pixels = observation[key][::-1, ::-1]
-                canvas.paste(Image.fromarray(pixels).resize((256, 256)), (column * 256, 24 + row * 264))
-        canvas.save(target)
 
 
 def main() -> None:
